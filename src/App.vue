@@ -1,8 +1,17 @@
 <template>
   <div id="app">
-    12121
+    <router-view></router-view>
+    <main-tab-bar></main-tab-bar>
   </div>
 </template>
+<script>
+import MainTabBar from 'components/content/maintabbar/MainTabBar'
+export default {
+  components: {
+    MainTabBar
+  }
+}
+</script>
 <style>
- @import '~assets/css/base.css'
+  @import '~assets/css/base.css';
 </style>
