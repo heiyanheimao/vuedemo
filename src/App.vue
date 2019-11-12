@@ -7,11 +7,19 @@
 <script>
 import MainTabBar from 'components/content/maintabbar/MainTabBar'
 export default {
+  data() {
+    return {
+    }
+  },
+  methods: {
+  },
+  computed: {
+  },
   components: {
     MainTabBar
   }
 }
 </script>
 <style>
-  @import '~assets/css/base.css';
+@import "~assets/css/base.css";
 </style>
