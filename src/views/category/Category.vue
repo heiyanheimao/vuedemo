@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" ref="wrapper">
     <ul class="content">
       <li>分类1</li>
       <li>分类2</li>
@@ -115,16 +115,27 @@ export default {
     }
   },
   created() {
-    this.scroll = new scroll('.wrapper', {
-
+  },
+  mounted() {
+    
+    scroll = new scroll('.wrapper', {
+      probeType: 2, //3一直监听滚动
+      // click: true,
+      pullUpLoad: true
     })
+
+    scroll.on('scroll', (position) => {
+      console.log(position)
+    })
+
   },
 }
 </script>
 
 <style>
-/* ul {
-  height: 100px;
-  overflow-y: scroll;
-} */
+.wrapper {
+  height: 200px;
+  overflow: hidden;
+  /* overflow-y: scroll; */
+}
 </style>
