@@ -6,7 +6,8 @@
     <home-swiper :list="banners" />
     <home-recommend :recommends="recommends" />
     <home-hobby />
-    <tab-control class="tab-control" :titles="['流行','经典','精选']" />
+    <tab-control class="tab-control" @tabClick="tabClick" :titles="['流行','经典','精选']" />
+
   </div>
 </template>
 
@@ -72,6 +73,9 @@ export default {
           console.log(...a)
         }
       )
+    },
+    tabClick(i) {
+      console.log(i)
     }
   },
 }
