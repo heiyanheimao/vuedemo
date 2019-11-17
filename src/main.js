@@ -8,7 +8,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.config.productionTip = false
 
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
-
+Vue.prototype.$bus = new Vue()//注册事件总线
 new Vue({
   router,
   store,

@@ -16,9 +16,20 @@ export default {
       scroll: null
     }
   },
+  props: {
+   probeType: {
+     type: Number,
+     default: 0
+   } 
+  },
   mounted() {
     this.scroll = new BScroll(this.$refs.wrapper, {
-      click: true
+      click: true,
+      probeType: this.probeType
+    })
+    this.scroll.on('scroll', (postion) => {
+      this.$emit('scroll',postion)
+      this.$bus.$emit('test')
     })
   },
   methods: {

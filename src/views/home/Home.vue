@@ -3,7 +3,7 @@
     <nav-bar class="home-nav">
       <div slot="center">购物街</div>
     </nav-bar>
-    <b-scroll class="wrapper" ref="scroll">
+    <b-scroll class="wrapper" ref="scroll" :probeType="3" @scroll="contentScroll">
       <home-swiper :list="banners" />
       <home-recommend :recommends="recommends" />
       <home-hobby />
@@ -111,7 +111,7 @@
         <li>100</li>
       </ul>
     </b-scroll>
-    <back-top @click.native="topClick"></back-top>
+    <back-top @click.native="topClick" v-show="!isTop"></back-top>
   </div>
 </template>
 
@@ -141,7 +141,8 @@ export default {
         'pop': { page: 0, list: [] },
         'new': { page: 0, list: [] },
         'sell': { page: 0, list: [] },
-      }
+      },
+      isTop: true
     }
   },
   components: {
@@ -187,6 +188,13 @@ export default {
     },
     topClick() {
       this.$refs.scroll.scrollTop(0,0,1000)
+    },
+    contentScroll(position) {
+      this.isTop = position.y > -300
+      this.$bus.$on('test', () => {
+        //事件总线
+        console.log('aaa');
+      })
     }
   },
 }
