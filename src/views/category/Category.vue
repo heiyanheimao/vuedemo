@@ -106,25 +106,24 @@
 </template>
 
 <script>
-import scroll from 'better-scroll'
+import BScroll from 'better-scroll'
 export default {
   name: 'Category',
   data() {
     return {
-      scroll: {}
     }
   },
   created() {
   },
   mounted() {
     
-    scroll = new scroll('.wrapper', {
+    BScroll = new scroll('.wrapper', {
       probeType: 2, //3一直监听滚动
       // click: true,
       pullUpLoad: true
     })
 
-    scroll.on('scroll', (position) => {
+    BScroll.on('scroll', (position) => {
       console.log(position)
     })
 
